@@ -1,6 +1,6 @@
 ---
 name: unlayer-export
-description: Use when exporting content from the Unlayer editor — HTML, PDF, image, plain text export, saving and loading design JSON, auto-save patterns, server-side Cloud API export.
+description: Exports content from the Unlayer editor — HTML, PDF, image, plain text, saving and loading design JSON, auto-save patterns, server-side Cloud API export.
 ---
 
 # Export Content

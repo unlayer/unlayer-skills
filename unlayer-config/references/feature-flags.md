@@ -35,8 +35,6 @@ features: {
     emojis: true,
     textDirection: true,              // null to hide controls
     inlineFontControls: true,
-    defaultFontSize: '14px',          // UNDOCUMENTED
-    inlineColorGroups: [],            // UNDOCUMENTED — custom color group IDs
     customButtons: [],                // Custom toolbar buttons
   },
 
@@ -69,17 +67,6 @@ features: {
 
   // --- COLLABORATION ---
   collaboration: false,
-
-  // --- UNDOCUMENTED FLAGS ---
-  beta: false,                        // { enabled: true, feedback: true }
-  devTab: false,                      // Developer/debug tab
-  svgImageUpload: false,              // Allow SVG uploads
-  smartMergeTags: true,               // Smart suggestions (default: true)
-  inboxPreviews: false,               // Inbox preview rendering
-  pageAnchors: false,                 // Page anchor support
-  syncedBlocks: false,                // Synced/dynamic blocks
-  multiLanguage: false,               // or { enabled: true, languages: [{ label: 'English', value: 'en' }] }
-  styleGuide: false,                  // Style guide (paid)
 
   // --- LEGACY ---
   legacy: {

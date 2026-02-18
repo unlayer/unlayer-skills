@@ -1,6 +1,6 @@
 ---
 name: unlayer-custom-tools
-description: Use when building custom drag-and-drop tools for the Unlayer editor — registering tools, adding property editors, creating custom widgets, head CSS/JS injection, tool configuration, and the custom# prefix convention.
+description: Builds custom drag-and-drop tools for the Unlayer editor — registering tools, adding property editors, creating custom widgets, head CSS/JS injection, tool configuration, and the custom# prefix convention.
 ---
 
 # Build Custom Tools

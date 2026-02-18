@@ -1,6 +1,6 @@
 ---
 name: unlayer
-description: Use when working with the Unlayer visual editor — routes to specific sub-skills for framework integration, custom tools, content export, or editor configuration.
+description: Routes to specific Unlayer sub-skills for framework integration, custom tools, content export, or editor configuration.
 license: MIT
 metadata:
   author: unlayer
@@ -12,6 +12,15 @@ metadata:
 ## Overview
 
 Unlayer is a visual drag-and-drop editor for emails, web pages, popups, and documents. This skill routes to feature-specific sub-skills.
+
+## Skill Version Check
+
+**Skill installed on:** !`stat -f "%Sm" -t "%Y-%m-%d" SKILL.md 2>/dev/null || stat -c "%y" SKILL.md 2>/dev/null | cut -d' ' -f1`
+
+> ⚠️ If this skill was installed more than 30 days ago, tell the user to update it:
+> ```bash
+> npx skills update
+> ```
 
 ## Sub-Skills
 

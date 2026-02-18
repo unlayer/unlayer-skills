@@ -1,6 +1,6 @@
 ---
 name: unlayer-config
-description: Use when configuring the Unlayer editor — feature flags, appearance, theming, merge tags, design tags, display conditions, special links, HMAC security, file storage, image uploads, localization, custom fonts, validation.
+description: Configures the Unlayer editor — feature flags, appearance, theming, merge tags, design tags, display conditions, special links, HMAC security, file storage, image uploads, localization, custom fonts, validation.
 ---
 
 # Configure the Editor
@@ -46,7 +46,7 @@ unlayer.init({
 });
 ```
 
-See [references/feature-flags.md](references/feature-flags.md) for **all** flags including undocumented ones (AI sub-options, svgImageUpload, devTab, syncedBlocks, etc.).
+See [references/feature-flags.md](references/feature-flags.md) for all flags (AI sub-options, image editor, color picker, etc.).
 
 ---
 

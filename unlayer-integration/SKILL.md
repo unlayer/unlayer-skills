@@ -1,6 +1,6 @@
 ---
 name: unlayer-integration
-description: Use when integrating the Unlayer editor into a web application — React, Vue, Angular, or plain JavaScript setup, component props, editor access patterns, multiple instances.
+description: Integrates the Unlayer editor into web applications — React, Vue, Angular, or plain JavaScript setup, component props, editor access patterns, multiple instances.
 ---
 
 # Integrate Unlayer Editor
@@ -17,6 +17,12 @@ Unlayer provides official wrappers for React, Vue, and Angular, plus a plain Jav
 | Vue | `vue-email-editor` | `npm i vue-email-editor` | `this.$refs.emailEditor.editor` |
 | Angular | `angular-email-editor` | `npm i angular-email-editor` | `@ViewChild` → `this.emailEditor.editor` |
 | Plain JS | CDN script tag | `<script>` embed | Global `unlayer` object |
+
+> ⚠️ **Before installing any Unlayer package**, verify the version exists on npm:
+> ```bash
+> npm view react-email-editor version   # check latest published version
+> ```
+> Never pin a version number you haven't verified. Use `npm install <package> --save` without a version to get the latest, or run `npm view <package> versions --json` to see all available versions.
 
 ---
 
@@ -325,6 +331,7 @@ editor2.loadDesign(webDesign);
 | Missing `projectId` | Get it from Dashboard > Project > Settings |
 | Only saving HTML, not design JSON | Always save **both** — design JSON lets users edit later |
 | No loading state while saving | Disable the save button to prevent double saves |
+| Pinning a non-existent package version | Run `npm view <package> version` to verify before pinning. Use `npm install <package> --save` without a version to get the latest. |
 
 ## Troubleshooting
 
