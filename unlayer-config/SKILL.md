@@ -55,21 +55,23 @@ See [references/feature-flags.md](references/feature-flags.md) for all flags (AI
 ```javascript
 unlayer.init({
   appearance: {
-    theme: 'dark',           // 'light' | 'dark'
+    theme: 'modern_dark',    // 'modern_light' | 'modern_dark' | 'classic_light' | 'classic_dark'
     panels: {
       tools: {
-        dock: 'left',        // 'left' | 'right'
+        dock: 'right',       // 'left' | 'right' (default: 'right')
         collapsible: true,
       },
     },
     actionBar: {
-      placement: 'bottom',  // 'top' | 'bottom'
+      placement: 'top',     // 'top' | 'bottom' | 'top_left' | 'top_right' | 'bottom_left' | 'bottom_right'
     },
   },
 });
 
 // Change at runtime:
-unlayer.setAppearance({ theme: 'dark' });
+unlayer.setAppearance({ theme: 'modern_dark' });
+// Or just the theme:
+unlayer.setTheme('modern_dark');
 ```
 
 ### Custom Fonts
@@ -82,7 +84,7 @@ unlayer.init({
       label: 'Poppins',
       value: "'Poppins', sans-serif",
       url: 'https://fonts.googleapis.com/css?family=Poppins:400,700',
-      weights: [400, 700],
+      weights: [400, 700],  // or [{ label: 'Regular', value: 400 }, { label: 'Bold', value: 700 }]
     }],
   },
 });
@@ -350,7 +352,7 @@ unlayer.setToolValidator('text', async ({ html, defaultErrors }) => {
 
 // Run audit on demand
 unlayer.audit((result) => {
-  // result: { status: 'FAIL' | 'PASS', errors: [{ severity, message }] }
+  // result: { status: 'FAIL' | 'PASS', errors: [{ id, icon, severity, title, description }] }
   if (result.status === 'FAIL') {
     console.log('Issues found:', result.errors);
   }
@@ -396,7 +398,7 @@ unlayer.init({
 | Merge tags don't appear | Check `setMergeTags()` is called after `editor:ready` or passed in `init()` |
 | HMAC signature rejected | Ensure `user.id` matches exactly what you signed, and secret is correct |
 | File manager shows empty | Check `user.id` is set, `userUploads.enabled = true`, provider returns correct format |
-| Theme doesn't apply | Use `setAppearance()` after init, or pass `appearance` in init options |
+| Theme doesn't apply | Use `unlayer.setAppearance({ theme: 'modern_dark' })` or `unlayer.setTheme('modern_dark')` after init |
 
 ## Paid Features
 

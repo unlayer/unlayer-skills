@@ -13,8 +13,7 @@ Unlayer supports multiple export formats. Some are client-side (free), others us
 
 | Method | Output | Paid? | Use When |
 |--------|--------|-------|----------|
-| `saveDesign` | Design JSON | No | Save for later editing |
-| `exportHtml` | HTML + design JSON | No | Email sending, web publishing |
+| `exportHtml` | HTML + design JSON | No | Email sending, web publishing, saving designs |
 | `exportPlainText` | Plain text + design | No | SMS, accessibility fallback |
 | `exportImage` | PNG URL + design | Yes | Thumbnails, previews, social sharing |
 | `exportPdf` | PDF URL + design | Yes | Print-ready documents |
@@ -27,12 +26,15 @@ Unlayer supports multiple export formats. Some are client-side (free), others us
 ## Save & Load Designs
 
 ```javascript
-// SAVE — store design JSON in your database
-unlayer.saveDesign(async (design) => {
+// SAVE — use exportHtml to get both design JSON and HTML
+unlayer.exportHtml(async (data) => {
   await fetch('/api/templates', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ design }),  // design is a JSON object
+    body: JSON.stringify({
+      design: data.design,  // Save this — needed to edit later
+      html: data.html,      // The rendered HTML output
+    }),
   });
 });
 
@@ -110,23 +112,17 @@ unlayer.exportPlainText((data) => {
 
 ## Export Image (Paid — Cloud API)
 
-Generates a PNG screenshot of the design. The returned URL is **temporary (valid ~24 hours)** — download and re-host it if you need it permanently.
+Generates a PNG screenshot of the design. The image uploads to your connected File Storage.
 
 **Client-side:**
 
 ```javascript
 unlayer.exportImage((data) => {
-  if (data.error) { console.error(data.error); return; }
-
-  // data.url — temporary PNG URL (expires ~24 hours)
-  // Download and save to your storage:
-  const imageBlob = await fetch(data.url).then(r => r.blob());
-  await uploadToYourStorage(imageBlob, 'thumbnail.png');
+  // data.url    — PNG URL
+  // data.design — Design JSON (always save this!)
+  console.log('Image URL:', data.url);
 }, {
   fullPage: false,           // true = entire page, false = viewport
-  width: 600,                // Output width in pixels
-  height: undefined,         // Auto-calculated if not set
-  deviceScaleFactor: 2,      // 2 = retina quality
   mergeTags: {},
 });
 ```
@@ -148,7 +144,7 @@ const response = await fetch('https://api.unlayer.com/v2/export/image', {
 });
 
 const data = await response.json();
-// data.url — temporary URL, download immediately
+// data.url — image URL
 ```
 
 ---
@@ -158,14 +154,14 @@ const data = await response.json();
 ```javascript
 // PDF
 unlayer.exportPdf((data) => {
-  if (data.error) { console.error(data.error); return; }
-  // data.url — temporary PDF URL
+  // data.url    — PDF URL
+  // data.design — Design JSON
 }, { mergeTags: {} });
 
 // ZIP
 unlayer.exportZip((data) => {
-  if (data.error) { console.error(data.error); return; }
-  // data.url — temporary ZIP URL
+  // data.url    — ZIP URL
+  // data.design — Design JSON
 }, { mergeTags: {} });
 ```
 
@@ -173,26 +169,7 @@ unlayer.exportZip((data) => {
 
 ## Auto-Save Pattern
 
-### Design only (fast, free):
-
-```javascript
-let saveTimeout;
-
-unlayer.addEventListener('design:updated', () => {
-  clearTimeout(saveTimeout);
-  saveTimeout = setTimeout(() => {
-    unlayer.saveDesign(async (design) => {
-      await fetch('/api/templates/123', {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ design }),
-      });
-    });
-  }, 1000); // 1-second debounce
-});
-```
-
-### Design + HTML (common):
+### Design + HTML (recommended):
 
 ```javascript
 let saveTimeout;
@@ -230,13 +207,13 @@ unlayer.addEventListener('design:updated', () => {
 
     // Generate thumbnail (slower, paid — debounce longer or do on manual save)
     unlayer.exportImage(async (data) => {
-      if (data.error) return;
-      // Download temporary URL and re-host
-      const blob = await fetch(data.url).then(r => r.blob());
-      const formData = new FormData();
-      formData.append('thumbnail', blob, 'thumbnail.png');
-      await fetch('/api/templates/123/thumbnail', { method: 'PUT', body: formData });
-    }, { width: 300, deviceScaleFactor: 1 });
+      if (!data.url) return;
+      await fetch('/api/templates/123/thumbnail', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ thumbnailUrl: data.url }),
+      });
+    }, { fullPage: false });
   }, 3000); // Longer debounce for image generation
 });
 ```
@@ -271,7 +248,7 @@ Content types: `text`, `heading`, `button`, `image`, `divider`, `social`, `html`
 |---------|-----|
 | Only saving HTML, not design JSON | **Always save both** — all export methods return `data.design` |
 | Calling export before `editor:ready` | Wait for the event first |
-| Storing `exportImage` URL permanently | URL expires ~24 hours — download and re-host immediately |
+| Not configuring File Storage for image/PDF export | Image and PDF uploads go to your connected File Storage |
 | Not debouncing auto-save | `design:updated` fires on every keystroke — debounce 1-3 seconds |
 | Ignoring `chunks` in exportHtml | Use `chunks.body` when you need just content without `<!DOCTYPE>` wrapper |
 | Missing API key for image/PDF/ZIP | Cloud API key required — get from Dashboard > Project > Settings > API Keys |

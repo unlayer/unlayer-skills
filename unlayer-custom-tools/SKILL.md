@@ -148,14 +148,27 @@ unlayer.registerTool({
   },
 
   validator(data) {
+    const { values, defaultErrors } = data;
     const errors = [];
-    if (!data.values.productTitle) {
-      errors.push({ severity: 'ERROR', message: 'Product title is required' });
+    if (!values.productTitle) {
+      errors.push({
+        id: 'PRODUCT_TITLE_REQUIRED',
+        icon: 'fa-warning',
+        severity: 'ERROR',
+        title: 'Missing product title',
+        description: 'Product title is required',
+      });
     }
-    if (!data.values.productImage?.url) {
-      errors.push({ severity: 'ERROR', message: 'Product image is required' });
+    if (!values.productImage?.url) {
+      errors.push({
+        id: 'PRODUCT_IMAGE_REQUIRED',
+        icon: 'fa-warning',
+        severity: 'ERROR',
+        title: 'Missing product image',
+        description: 'Product image is required',
+      });
     }
-    return errors;
+    return [...errors, ...defaultErrors];
   },
 });
 ```
@@ -199,20 +212,27 @@ How to read each widget type's value in your renderer:
 | `datetime` | `'2025-01-01'` | `values.myField` → `'2025-01-01'` |
 | `border` | `{borderTopWidth:'1px',...}` | `values.myField.borderTopWidth` → `'1px'` |
 
-**Dropdown options** — pass via `data.options` in the property definition:
+**Dropdown options** — pass via `unlayer.init()` under the tool's properties config:
 
 ```javascript
-department: {
-  label: 'Department',
-  defaultValue: 'sales',
-  widget: 'dropdown',
-  data: {
-    options: [
-      { label: 'Sales', value: 'sales' },
-      { label: 'Support', value: 'support' },
-    ],
+unlayer.init({
+  tools: {
+    'custom#product_card': {
+      properties: {
+        department: {
+          editor: {
+            data: {
+              options: [
+                { label: 'Sales', value: 'sales' },
+                { label: 'Support', value: 'support' },
+              ],
+            },
+          },
+        },
+      },
+    },
   },
-},
+});
 ```
 
 ---
@@ -253,17 +273,35 @@ borderRadius: {
 
 ## Validator Return Format
 
+Each error must include `id`, `icon`, `severity`, `title`, and `description`:
+
 ```javascript
 validator(data) {
+  const { values, defaultErrors } = data;
   const errors = [];
-  // Each error: { severity: 'ERROR' | 'WARNING', message: string }
-  if (!data.values.productTitle) {
-    errors.push({ severity: 'ERROR', message: 'Product title is required' });
+
+  if (!values.productTitle) {
+    errors.push({
+      id: 'PRODUCT_TITLE_REQUIRED',     // Unique error ID
+      icon: 'fa-warning',                // FontAwesome icon
+      severity: 'ERROR',                 // 'ERROR' | 'WARNING'
+      title: 'Missing product title',    // Short label
+      description: 'Product title is required',  // Detailed message
+    });
   }
-  if (data.values.price && !data.values.price.startsWith('$')) {
-    errors.push({ severity: 'WARNING', message: 'Price should include currency symbol' });
+
+  if (values.price && !values.price.startsWith('$')) {
+    errors.push({
+      id: 'PRICE_MISSING_CURRENCY',
+      icon: 'fa-dollar-sign',
+      severity: 'WARNING',
+      title: 'Missing currency symbol',
+      description: 'Price should include currency symbol',
+      labelPath: 'price',               // Optional — highlights the property in the panel
+    });
   }
-  return errors;
+
+  return [...errors, ...defaultErrors];  // Merge with built-in errors
 }
 ```
 
@@ -308,7 +346,7 @@ Email clients (Outlook, Gmail) require table-based HTML. Copy-paste these patter
 | Div-based email exporter | Email exporters MUST return **table-based HTML** |
 | Forgetting `_meta.htmlID` | Scope CSS: `#${values._meta.htmlID} { ... }` |
 | Hardcoded values in renderer | Use `values` object — let property editors drive content |
-| Wrong dropdown options format | Use `data: { options: [{label, value}] }` in the property def |
+| Wrong dropdown options format | Pass options via `unlayer.init()` under `tools['custom#name'].properties.prop.editor.data.options` |
 
 ## Troubleshooting
 
