@@ -227,7 +227,7 @@ The design JSON has this structure (see [references/design-json.md](references/d
 ```
 JSONTemplate
 ├── counters          — Internal counters
-├── schemaVersion     — Currently 16
+├── schemaVersion     — Schema version number
 └── body
     ├── rows[]        — Each row contains columns
     │   ├── cells[]   — Column ratios: [1,1] = 50/50

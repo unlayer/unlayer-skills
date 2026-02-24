@@ -5,7 +5,7 @@
 ```typescript
 interface JSONTemplate {
   counters: Record<string, number>;   // e.g., { u_row: 3, u_column: 4, u_content_text: 5 }
-  schemaVersion: number;              // Current: 16
+  schemaVersion: number;
   body: {
     id: string;                       // e.g., "_BZCs8S2YW"
     rows: Row[];
@@ -83,11 +83,14 @@ interface Column {
 
 ## Content Item Structure
 
+These are the shared properties common to all content items. Each tool type (text, button, image, etc.) adds its own specific properties to `values` — refer to the full JSON schema for tool-specific fields.
+
 ```typescript
 interface ContentItem {
   id: string;
   type: string;                     // See content types below
   values: {
+    // --- Shared properties (all tools) ---
     containerPadding: string;
     anchor: string;
     textAlign: string;              // 'left' | 'center' | 'right'
@@ -107,8 +110,10 @@ interface ContentItem {
     duplicatable: boolean;
     deletable: boolean;
     hideable: boolean;
-    text: string;                   // HTML content (for text/heading)
-    // ...type-specific properties
+    // --- Tool-specific properties vary per type ---
+    // e.g., text/heading: { text: string }
+    // e.g., image: { src: { url, width, height }, alt, action }
+    // e.g., button: { text, href, buttonColors, ... }
   };
 }
 ```
