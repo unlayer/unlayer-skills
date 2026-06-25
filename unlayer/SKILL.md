@@ -26,7 +26,8 @@ Unlayer is a visual drag-and-drop editor for emails, web pages, popups, and docu
 
 | Task | Skill | Use When |
 |------|-------|----------|
-| **Framework setup** | `unlayer-integration` | Adding Unlayer to React, Vue, Angular, or plain JavaScript |
+| **Framework setup** | `unlayer-integration` | Adding the drag-and-drop editor to React, Vue, Angular, or plain JavaScript |
+| **Build templates in code** | `unlayer-elements` | Generating emails/pages/documents with React components, no visual editor (AI generation, programmatic templates) |
 | **Custom tools** | `unlayer-custom-tools` | Building custom drag-and-drop tools, property editors, widgets |
 | **Exporting content** | `unlayer-export` | HTML/PDF/Image export, saving designs, auto-save, Cloud API |
 | **Editor configuration** | `unlayer-config` | Features, appearance, merge tags, security, file storage |
@@ -36,11 +37,14 @@ Unlayer is a visual drag-and-drop editor for emails, web pages, popups, and docu
 | User Says | Route To |
 |-----------|----------|
 | "Add Unlayer to my React/Vue/Angular app" | `unlayer-integration` |
+| "Build an email/page in code" / "Generate a template with React components" / "Render JSX to email HTML" | `unlayer-elements` |
 | "Create a custom drag-and-drop tool" | `unlayer-custom-tools` |
 | "Export HTML" / "Save the design" / "Generate thumbnail" | `unlayer-export` |
 | "Set up merge tags" / "Configure features" / "HMAC security" | `unlayer-config` |
 | "Upload images to my server" / "Dark theme" / "Custom fonts" | `unlayer-config` |
 | "My merge tags aren't working" / "Editor won't load" | Check `unlayer-config` or `unlayer-integration` |
+
+> **Editor vs Elements:** `unlayer-integration` embeds the visual drag-and-drop editor. `unlayer-elements` builds templates purely in code (React components → HTML), with no editor UI — use it for AI/programmatic template generation.
 
 **Multiple skills needed?** Common flow:
 1. Start with `unlayer-integration` to add the editor to your app

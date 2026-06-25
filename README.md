@@ -21,7 +21,8 @@ npx skills add unlayer/unlayer-skills
 | Skill | Description |
 |-------|-------------|
 | `unlayer` | Router — identifies the right sub-skill for your question |
-| `unlayer-integration` | Add Unlayer to React, Vue, Angular, or plain JavaScript |
+| `unlayer-integration` | Add the drag-and-drop editor to React, Vue, Angular, or plain JavaScript |
+| `unlayer-elements` | Build emails, pages, and documents in code with React components (no visual editor) |
 | `unlayer-custom-tools` | Build custom drag-and-drop tools and property editors |
 | `unlayer-export` | Export HTML, PDF, images, or save/load designs |
 | `unlayer-config` | Configure features, appearance, security, and dynamic content |
@@ -30,6 +31,8 @@ npx skills add unlayer/unlayer-skills
 
 ```
 "How do I add Unlayer to my React app?"
+"Build a welcome email in code with Unlayer Elements"
+"Generate an email template from React components and render it to HTML"
 "Create a custom tool with a color picker and text input"
 "Export my design as HTML and save the design JSON"
 "Set up merge tags for my email templates"
