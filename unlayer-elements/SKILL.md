@@ -30,7 +30,7 @@ npm view @unlayer/react-elements version   # verify the published version first
 npm install @unlayer/react-elements
 ```
 
-> This skill is written for `@unlayer/react-elements` **0.1.9+** and uses only forms verified against it. Always pass **canonical prop shapes** (object `fontFamily`, string sizes, etc.) — they work in every version.
+> This skill targets `@unlayer/react-elements` **0.1.11+** (`npm view @unlayer/react-elements version` to check) and uses only forms verified against it. The natural forms below — string/number sizes, object or string `fontFamily`, factored-out style objects — all type-check on 0.1.11+; on older versions, upgrade.
 
 ## Mental model — the structure is strict
 
@@ -54,6 +54,8 @@ import { renderToHtml, renderToJson } from '@unlayer/react-elements';
 const html = renderToHtml(<Email>…</Email>);   // final HTML string (no hydration markers)
 const json = renderToJson(<Email>…</Email>);   // Unlayer design JSON (import into the editor)
 ```
+
+> Pass the **root element** (`<Email>`/`<Page>`/`<Document>`) directly. If you wrap your template in your own component, **call it** — `renderToJson(MyEmail())` — don't pass `<MyEmail />` (the renderers read the root element type, so a wrapper component isn't recognized).
 
 ## Complete example
 
@@ -138,9 +140,9 @@ Agent-generated emails often look cheap. To make them genuinely nice:
 - Use the brand's **real palette**; put white content rows on a light-gray `Email backgroundColor` for a card feel.
 - Add an **eyebrow**: a small uppercase `<Heading fontSize="12px" fontWeight={700} letterSpacing="0.08em">` in an accent color above the headline.
 - Generous, consistent **40–48px horizontal padding** and intentional vertical rhythm. Solid brand CTA with `borderRadius` ~8–10px.
-- **Full-width button** (when you want one) — set the display width on `size` via the escape hatch:
+- **Full-width button** (when you want one) — pass the top-level `width` prop (`"100%"`, or `"200px"` for a fixed width):
   ```tsx
-  <Button values={{ size: { autoWidth: false, width: '100%' } }} href="…" backgroundColor="…" color="#FFFFFF"
+  <Button width="100%" href="…" backgroundColor="…" color="#FFFFFF"
     fontSize="16px" fontWeight={700} padding="14px 28px" borderRadius="8px" textAlign="center">Get started</Button>
   ```
 

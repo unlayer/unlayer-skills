@@ -1,6 +1,6 @@
 # Unlayer Elements — Section Recipes
 
-Ready-to-use building blocks for emails that look genuinely premium, not "agent-generated." Pick a real brand palette; put white content rows on a light-gray `Email backgroundColor` for a card feel; keep 40–48px horizontal padding with intentional vertical rhythm. All shapes here are verified against `@unlayer/react-elements` `0.1.9+`.
+Ready-to-use building blocks for emails that look genuinely premium, not "agent-generated." Pick a real brand palette; put white content rows on a light-gray `Email backgroundColor` for a card feel; keep 40–48px horizontal padding with intentional vertical rhythm. All shapes here are verified against `@unlayer/react-elements` `0.1.11+`.
 
 All Rows must be **direct children of the root** — when you factor a section into a helper, the helper must `return` a `<Row>` and be called inline (`{section(...)}`), never used as `<section/>`.
 
@@ -27,8 +27,8 @@ All Rows must be **direct children of the root** — when you factor a section i
 </Row>
 <Row layout={ColumnLayouts.OneColumn} backgroundColor="#FFFFFF" padding="20px 40px 32px 40px">
   <Column>
-    {/* full-width CTA: set the display width on size via the escape hatch */}
-    <Button values={{ size: { autoWidth: false, width: '100%' } }} href="#" backgroundColor={BRAND} color="#FFFFFF"
+    {/* full-width CTA: pass the top-level width prop */}
+    <Button width="100%" href="#" backgroundColor={BRAND} color="#FFFFFF"
       fontSize="16px" fontWeight={700} padding="15px 28px" borderRadius="10px" textAlign="center">Get started</Button>
   </Column>
 </Row>
