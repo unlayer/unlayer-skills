@@ -1,6 +1,6 @@
 # Unlayer Elements — Component Reference
 
-All components import from `@unlayer/react-elements`. Use the **canonical prop shapes** below — they work in every published version (`0.1.9+`).
+All components import from `@unlayer/react-elements`. Use the prop shapes below — verified against `@unlayer/react-elements` `0.1.11+`.
 
 ## Root wrappers — `Email` / `Page` / `Document`
 
@@ -77,7 +77,7 @@ Use Heading for **any prominent number/amount**, never Paragraph.
 | `borderRadius` | string | `"8px"`, `"500px"` (pill) |
 | `textAlign` | | |
 
-By default a button is content-sized. For a **fixed / full-width** button, set the display width via the escape hatch: `values={{ size: { autoWidth: false, width: "100%" } }}` (or `"200px"`).
+By default a button is content-sized. For a **fixed / full-width** button, pass the top-level `width` prop: `width="100%"` (or `"200px"`).
 
 ### `Image`
 | Prop | Type | Notes |
