@@ -1,0 +1,4 @@
+interface:
+  display_name: "Unlayer Image Editor"
+  short_description: "Integrate and configure the Unlayer Image Editor"
+  default_prompt: "Use $unlayer-image-editor to embed and configure the standalone Unlayer Image Editor."
