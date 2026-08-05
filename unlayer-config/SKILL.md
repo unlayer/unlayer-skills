@@ -1,6 +1,6 @@
 ---
 name: unlayer-config
-description: Configures the Unlayer editor — feature flags, appearance, theming, merge tags, design tags, display conditions, special links, HMAC security, file storage, image uploads, localization, custom fonts, validation.
+description: Configures Unlayer's email, page, popup, and document builders — feature flags, appearance, theming, merge tags, design tags, display conditions, special links, HMAC security, file storage, image uploads, localization, custom fonts, and validation. For the standalone Image Editor, use unlayer-image-editor.
 ---
 
 # Configure the Editor
@@ -8,6 +8,9 @@ description: Configures the Unlayer editor — feature flags, appearance, themin
 ## Overview
 
 Unlayer's behavior is controlled through `unlayer.init()` options and runtime methods. This skill covers features, appearance, dynamic content, security, and file storage.
+
+This includes the image editor opened from an image inside a builder. For the standalone Image
+Editor and `@unlayer/react-image-editor`, use `unlayer-image-editor`.
 
 **Where to find keys:**
 - **Project ID** — Dashboard > Project > Settings

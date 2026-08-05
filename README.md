@@ -22,6 +22,7 @@ npx skills add unlayer/unlayer-skills
 |-------|-------------|
 | `unlayer` | Router — identifies the right sub-skill for your question |
 | `unlayer-integration` | Add the drag-and-drop editor to React, Vue, Angular, or plain JavaScript |
+| `unlayer-image-editor` | Embed and configure the standalone Image Editor with JavaScript or React |
 | `unlayer-elements` | Build emails, pages, and documents in code with React components (no visual editor) |
 | `unlayer-custom-tools` | Build custom drag-and-drop tools and property editors |
 | `unlayer-export` | Export HTML, PDF, images, or save/load designs |
@@ -31,6 +32,8 @@ npx skills add unlayer/unlayer-skills
 
 ```
 "How do I add Unlayer to my React app?"
+"Embed the standalone Image Editor in my React app"
+"Enable the Image Editor AI Assistant"
 "Build a welcome email in code with Unlayer Elements"
 "Generate an email template from React components and render it to HTML"
 "Create a custom tool with a color picker and text input"
@@ -40,12 +43,19 @@ npx skills add unlayer/unlayer-skills
 "Set up custom image upload to my S3 bucket"
 ```
 
-## Supported Frameworks
+## Supported Integrations
+
+### Builders
 
 - React (`react-email-editor`)
 - Vue (`vue-email-editor`)
 - Angular (`angular-email-editor`)
 - Plain JavaScript (embed.js)
+
+### Standalone Image Editor
+
+- React (`@unlayer/react-image-editor`)
+- Plain JavaScript (`image-editor/embed.js`)
 
 ## Prerequisites
 

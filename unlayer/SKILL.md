@@ -1,6 +1,6 @@
 ---
 name: unlayer
-description: Routes to specific Unlayer sub-skills for framework integration, custom tools, content export, or editor configuration.
+description: Routes to specific Unlayer sub-skills for builder integration, the standalone Image Editor, custom tools, content export, or editor configuration.
 license: MIT
 metadata:
   author: unlayer
@@ -27,6 +27,7 @@ Unlayer is a visual drag-and-drop editor for emails, web pages, popups, and docu
 | Task | Skill | Use When |
 |------|-------|----------|
 | **Framework setup** | `unlayer-integration` | Adding the drag-and-drop editor to React, Vue, Angular, or plain JavaScript |
+| **Standalone Image Editor** | `unlayer-image-editor` | Embedding or configuring the standalone Image Editor with JavaScript or React |
 | **Build templates in code** | `unlayer-elements` | Generating emails/pages/documents with React components, no visual editor (AI generation, programmatic templates) |
 | **Custom tools** | `unlayer-custom-tools` | Building custom drag-and-drop tools, property editors, widgets |
 | **Exporting content** | `unlayer-export` | HTML/PDF/Image export, saving designs, auto-save, Cloud API |
@@ -37,6 +38,8 @@ Unlayer is a visual drag-and-drop editor for emails, web pages, popups, and docu
 | User Says | Route To |
 |-----------|----------|
 | "Add Unlayer to my React/Vue/Angular app" | `unlayer-integration` |
+| "Embed the Image Editor" / "Use @unlayer/react-image-editor" | `unlayer-image-editor` |
+| "Configure the image editor inside the email builder" | `unlayer-config` |
 | "Build an email/page in code" / "Generate a template with React components" / "Render JSX to email HTML" | `unlayer-elements` |
 | "Create a custom drag-and-drop tool" | `unlayer-custom-tools` |
 | "Export HTML" / "Save the design" / "Generate thumbnail" | `unlayer-export` |
@@ -45,6 +48,10 @@ Unlayer is a visual drag-and-drop editor for emails, web pages, popups, and docu
 | "My merge tags aren't working" / "Editor won't load" | Check `unlayer-config` or `unlayer-integration` |
 
 > **Editor vs Elements:** `unlayer-integration` embeds the visual drag-and-drop editor. `unlayer-elements` builds templates purely in code (React components → HTML), with no editor UI — use it for AI/programmatic template generation.
+
+> **Standalone vs in-builder Image Editor:** `unlayer-image-editor` embeds the standalone product.
+> `unlayer-config` configures the image editor opened from an image inside an email, page, popup,
+> or document builder.
 
 **Multiple skills needed?** Common flow:
 1. Start with `unlayer-integration` to add the editor to your app

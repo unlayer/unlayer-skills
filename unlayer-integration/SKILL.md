@@ -1,6 +1,6 @@
 ---
 name: unlayer-integration
-description: Integrates the Unlayer editor into web applications — React, Vue, Angular, or plain JavaScript setup, component props, editor access patterns, multiple instances.
+description: Integrates Unlayer's email, page, popup, and document builders into web applications through React, Vue, Angular, or plain JavaScript. Use for builder component setup, props, editor access patterns, and multiple instances. For the standalone Image Editor or @unlayer/react-image-editor, use unlayer-image-editor.
 ---
 
 # Integrate Unlayer Editor
@@ -8,6 +8,9 @@ description: Integrates the Unlayer editor into web applications — React, Vue,
 ## Overview
 
 Unlayer provides official wrappers for React, Vue, and Angular, plus a plain JavaScript embed. All wrappers share the same underlying API — only the editor access pattern differs.
+
+This skill covers the email, page, popup, and document builders. For the standalone Image Editor or
+`@unlayer/react-image-editor`, use `unlayer-image-editor`.
 
 ## Which Framework?
 
