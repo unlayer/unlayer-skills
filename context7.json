@@ -1,0 +1,13 @@
+{
+  "$schema": "https://context7.com/schema/context7.json",
+  "url": "https://context7.com/unlayer/unlayer-skills",
+  "public_key": "pk_GRHFX0dq2BRyO29TL79nG",
+  "projectTitle": "Unlayer Skills",
+  "description": "Official Unlayer skills for AI coding agents: embed the drag-and-drop editor, build templates in code with Unlayer Elements, custom tools, export, configuration, and the Image Editor.",
+  "excludeFiles": ["CHANGELOG.md"],
+  "rules": [
+    "Install with `npx skills add unlayer/unlayer-skills`. The `unlayer` router skill picks the right sub-skill for a question.",
+    "Embedding the editor: unlayer-integration. Templates written in code: unlayer-elements. Custom blocks: unlayer-custom-tools. Export or save/load designs: unlayer-export. Features and security: unlayer-config.",
+    "Use exact package names: react-email-editor, vue-email-editor, angular-email-editor, @unlayer/react-elements, and @unlayer/react-image-editor (the unscoped react-image-editor npm package is unrelated)."
+  ]
+}
