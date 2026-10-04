@@ -23,7 +23,7 @@ npx skills add unlayer/unlayer-skills
 | `unlayer` | Router — identifies the right sub-skill for your question |
 | `unlayer-integration` | Add the drag-and-drop editor to React, Vue, Angular, or plain JavaScript |
 | `unlayer-image-editor` | Embed and configure the standalone Image Editor with JavaScript or React |
-| `unlayer-elements` | Build emails, pages, and documents in code with React components (no visual editor) |
+| `unlayer-elements` | Build emails, pages, and documents in code with React components; open them in the visual editor via `renderToJson()` |
 | `unlayer-custom-tools` | Build custom drag-and-drop tools and property editors |
 | `unlayer-export` | Export HTML, PDF, images, or save/load designs |
 | `unlayer-config` | Configure features, appearance, security, and dynamic content |

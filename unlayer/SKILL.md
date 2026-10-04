@@ -28,7 +28,7 @@ Unlayer is a visual drag-and-drop editor for emails, web pages, popups, and docu
 |------|-------|----------|
 | **Framework setup** | `unlayer-integration` | Adding the drag-and-drop editor to React, Vue, Angular, or plain JavaScript |
 | **Standalone Image Editor** | `unlayer-image-editor` | Embedding or configuring the standalone Image Editor with JavaScript or React |
-| **Build templates in code** | `unlayer-elements` | Generating emails/pages/documents with React components, no visual editor (AI generation, programmatic templates) |
+| **Build templates in code** | `unlayer-elements` | Writing or generating emails/pages/documents with React components (app emails, PDFs, AI generation, templates in a repo); `renderToJson()` output opens in the visual editor |
 | **Custom tools** | `unlayer-custom-tools` | Building custom drag-and-drop tools, property editors, widgets |
 | **Exporting content** | `unlayer-export` | HTML/PDF/Image export, saving designs, auto-save, Cloud API |
 | **Editor configuration** | `unlayer-config` | Features, appearance, merge tags, security, file storage |
