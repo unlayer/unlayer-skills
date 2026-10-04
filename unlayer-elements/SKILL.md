@@ -1,25 +1,26 @@
 ---
 name: unlayer-elements
-description: Build emails, pages, and documents in code with @unlayer/react-elements — React components that render to email-safe (table) HTML, responsive web HTML, or print/PDF. Use when generating templates programmatically without the visual editor.
+description: Build emails, pages, and documents in code with @unlayer/react-elements — React components that render to email-safe (table) HTML, responsive web HTML, or print/PDF, and to design JSON the Unlayer visual editor opens. Use when writing or generating templates in code (app emails, invoices and other PDFs, templates kept in a repo, AI-generated templates), including when teammates should later edit them visually.
 ---
 
 # Build with Unlayer Elements (code-first)
 
 ## Overview
 
-`@unlayer/react-elements` is a set of React components for building emails, pages, and documents **in code** — no visual editor. Write JSX once and render it to:
+`@unlayer/react-elements` is a set of React components for building emails, pages, and documents **in code** — no editor required. Write JSX once and render it to:
 
 - **email** — table-based HTML (Outlook/Gmail/Yahoo safe)
 - **web** — responsive div/flexbox HTML
 - **document** — print / PDF-optimized HTML
 
-The output is a faithful reproduction of what the Unlayer editor produces, so designs round-trip into the editor as JSON. Full SSR support (Next.js, Remix, `renderToString`).
+The output is a faithful reproduction of what the Unlayer editor produces, so designs round-trip into the editor as JSON: `renderToJson()` returns design JSON that the visual editor opens with `loadDesign()`, letting non-developers edit templates you built in code. Full SSR support (Next.js, Remix, `renderToString`).
 
 ### When to use this skill vs the editor
 
 | You want to… | Use |
 |---|---|
 | Generate/assemble templates **in code** (AI generation, programmatic emails, design systems) | **this skill** (`@unlayer/react-elements`) |
+| Build templates in code **and** let teammates edit them visually | **this skill** (`renderToJson()`) + `unlayer-integration` (`loadDesign()`) |
 | Embed a **drag-and-drop visual editor** in your app | `unlayer-integration` |
 | Export HTML/PDF from a saved design / Cloud API | `unlayer-export` |
 
