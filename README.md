@@ -23,7 +23,7 @@ npx skills add unlayer/unlayer-skills
 | `unlayer` | Router — identifies the right sub-skill for your question |
 | `unlayer-integration` | Add the drag-and-drop editor to React, Vue, Angular, or plain JavaScript |
 | `unlayer-image-editor` | Embed and configure the standalone Image Editor with JavaScript or React |
-| `unlayer-elements` | Build emails, pages, and documents in code with React components; open them in the visual editor via `renderToJson()` |
+| `unlayer-elements` | Build emails, pages, and documents in code with [Hyper Elements](https://hyperelements.dev), formerly Unlayer Elements; open them in the visual editor via `toDesign()` |
 | `unlayer-custom-tools` | Build custom drag-and-drop tools and property editors |
 | `unlayer-export` | Export HTML, PDF, images, or save/load designs |
 | `unlayer-config` | Configure features, appearance, security, and dynamic content |
@@ -34,7 +34,7 @@ npx skills add unlayer/unlayer-skills
 "How do I add Unlayer to my React app?"
 "Embed the standalone Image Editor in my React app"
 "Enable the Image Editor AI Assistant"
-"Build a welcome email in code with Unlayer Elements"
+"Build a welcome email in code with Hyper Elements"
 "Generate an email template from React components and render it to HTML"
 "Create a custom tool with a color picker and text input"
 "Export my design as HTML and save the design JSON"
