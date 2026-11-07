@@ -28,7 +28,7 @@ Unlayer is a visual drag-and-drop editor for emails, web pages, popups, and docu
 |------|-------|----------|
 | **Framework setup** | `unlayer-integration` | Adding the drag-and-drop editor to React, Vue, Angular, or plain JavaScript |
 | **Standalone Image Editor** | `unlayer-image-editor` | Embedding or configuring the standalone Image Editor with JavaScript or React |
-| **Build templates in code** | `unlayer-elements` | Writing or generating emails/pages/documents with React components (app emails, PDFs, AI generation, templates in a repo); `renderToJson()` output opens in the visual editor |
+| **Build templates in code** | `unlayer-elements` | Writing or generating emails/pages/documents/PDFs/images with React components using Hyper Elements (app emails, AI generation, templates in a repo), or moving templates off `@unlayer/react-elements`; `toDesign()` output opens in the visual editor |
 | **Custom tools** | `unlayer-custom-tools` | Building custom drag-and-drop tools, property editors, widgets |
 | **Exporting content** | `unlayer-export` | HTML/PDF/Image export, saving designs, auto-save, Cloud API |
 | **Editor configuration** | `unlayer-config` | Features, appearance, merge tags, security, file storage |
@@ -47,7 +47,7 @@ Unlayer is a visual drag-and-drop editor for emails, web pages, popups, and docu
 | "Upload images to my server" / "Dark theme" / "Custom fonts" | `unlayer-config` |
 | "My merge tags aren't working" / "Editor won't load" | Check `unlayer-config` or `unlayer-integration` |
 
-> **Editor vs Elements:** `unlayer-integration` embeds the visual drag-and-drop editor. `unlayer-elements` builds templates purely in code (React components → HTML), with no editor UI — use it for AI/programmatic template generation.
+> **Editor vs Elements:** `unlayer-integration` embeds the visual drag-and-drop editor. `unlayer-elements` points to Hyper Elements, which builds templates purely in code (React components → HTML), with no editor UI — use it for AI/programmatic template generation.
 
 > **Standalone vs in-builder Image Editor:** `unlayer-image-editor` embeds the standalone product.
 > `unlayer-config` configures the image editor opened from an image inside an email, page, popup,
