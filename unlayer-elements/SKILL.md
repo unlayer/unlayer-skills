@@ -5,7 +5,7 @@ description: Write emails, web pages, documents, PDFs, and images in code with H
 
 # Build templates in code with Hyper Elements
 
-Unlayer Elements (`@unlayer/react-elements`) is now Hyper Elements (`@hyper-elements/react`), with new components. Write new templates with the new package. `ColumnLayouts`, `renderToHtml()`, `renderToJson()`, and styles as props belong to the old package and aren't in the new one.
+Unlayer Elements (`@unlayer/react-elements`) is now Hyper Elements (`@hyper-elements/react`), with new elements. Write new templates with the new package. `ColumnLayouts`, `renderToHtml()`, `renderToJson()`, and styles as props belong to the old package and aren't in the new one.
 
 ## Get the full guide
 
