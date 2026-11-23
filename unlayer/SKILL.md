@@ -1,6 +1,6 @@
 ---
 name: unlayer
-description: Routes to specific Unlayer sub-skills for builder integration, the standalone Image Editor, custom tools, content export, or editor configuration.
+description: Routes to specific Unlayer sub-skills for builder integration, the standalone Image Editor, custom tools, content export, the Unlayer CLI, or editor configuration.
 license: MIT
 metadata:
   author: unlayer
@@ -31,6 +31,7 @@ Unlayer is a visual drag-and-drop editor for emails, web pages, popups, and docu
 | **Build templates in code** | `unlayer-elements` | Writing or generating emails/pages/documents/PDFs/images with React components using Hyper Elements (app emails, AI generation, templates in a repo), or moving templates off `@unlayer/react-elements`; `toDesign()` output opens in the visual editor |
 | **Custom tools** | `unlayer-custom-tools` | Building custom drag-and-drop tools, property editors, widgets |
 | **Exporting content** | `unlayer-export` | HTML/PDF/Image export, saving designs, auto-save, Cloud API |
+| **Command line** | `unlayer-cli` | Using the `unlayer` CLI (`@unlayer/cli`) to list, pull, or diff templates, switch projects, or run in CI or from an agent |
 | **Editor configuration** | `unlayer-config` | Features, appearance, merge tags, security, file storage |
 
 ## Routing Examples
@@ -43,6 +44,7 @@ Unlayer is a visual drag-and-drop editor for emails, web pages, popups, and docu
 | "Build an email/page in code" / "Generate a template with React components" / "Render JSX to email HTML" | `unlayer-elements` |
 | "Create a custom drag-and-drop tool" | `unlayer-custom-tools` |
 | "Export HTML" / "Save the design" / "Generate thumbnail" | `unlayer-export` |
+| "Pull my templates" / "Diff a design against the remote" / "Use the unlayer CLI in CI" | `unlayer-cli` |
 | "Set up merge tags" / "Configure features" / "HMAC security" | `unlayer-config` |
 | "Upload images to my server" / "Dark theme" / "Custom fonts" | `unlayer-config` |
 | "My merge tags aren't working" / "Editor won't load" | Check `unlayer-config` or `unlayer-integration` |

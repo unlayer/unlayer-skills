@@ -26,6 +26,7 @@ npx skills add unlayer/unlayer-skills
 | `unlayer-elements` | Build emails, pages, and documents in code with [Hyper Elements](https://hyperelements.dev), formerly Unlayer Elements; open them in the visual editor via `toDesign()` |
 | `unlayer-custom-tools` | Build custom drag-and-drop tools and property editors |
 | `unlayer-export` | Export HTML, PDF, images, or save/load designs |
+| `unlayer-cli` | Use the `unlayer` CLI to list, pull, and diff templates, and to run it from CI or an agent |
 | `unlayer-config` | Configure features, appearance, security, and dynamic content |
 
 ## Usage Examples
@@ -38,6 +39,7 @@ npx skills add unlayer/unlayer-skills
 "Generate an email template from React components and render it to HTML"
 "Create a custom tool with a color picker and text input"
 "Export my design as HTML and save the design JSON"
+"Pull all my Unlayer templates to local files with the CLI"
 "Set up merge tags for my email templates"
 "Configure HMAC security for user identification"
 "Set up custom image upload to my S3 bucket"
